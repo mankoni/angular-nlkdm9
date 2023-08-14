@@ -1,0 +1,17 @@
+# importing modules
+import pandas as pd
+  
+# creating a dataframe
+df1 = pd.read_excel('/Colab_input1.xlsx')
+  
+# creating another dataframe with different data
+df2 = pd.read_excel('/Colab_input2.xlsx')
+
+df2['COUNTY'] = df2['DCOUNTY'].str[-2:]
+##print("FRAME 2\n" , df2)
+#df1 = taxl
+#df2 = hold
+ 
+
+#df1.merge(df2[['C', 'Grade', 'Rank']])
+df1[['COUNTY','DISTRICT']].merge(df2[['COUNTY', 'AREA']],how='right')

@@ -1,0 +1,89 @@
+import pandas as pd
+
+# Create a sample dataframe with one column of integers from 1 to 20
+df = pd.DataFrame({'A': range(1, 21)})
+
+# Get the data from the first column
+data = df.iloc[:,0]
+
+# Define the bin ranges with overflow
+bin_ranges = [0, 5, 10, float('inf')]
+
+# Calculate the histogram data
+hist = pd.cut(data, bins=bin_ranges, right=True).value_counts(sort=False)
+
+# Convert the histogram data to a numpy array
+hist_array = hist.values
+hist_percvent = hist.values/hist.values.sum()
+
+# Print the histogram data
+print(df)
+print(hist_array)
+print(hist_percvent)
+
+
+####################  this version creates test data and prints freq bins   ######################
+
+
+import pandas as pd
+import numpy as np
+from datetime import datetime
+
+# Set the random seed for reproducibility
+np.random.seed(0)
+
+# Create a date range
+date_range = pd.date_range(start='1/1/2023', end='12/31/2050')
+
+# Generate random dates
+random_dates = np.random.choice(date_range, size=25)
+
+# Create the DataFrame
+df = pd.DataFrame({
+    'Integers': range(1, 26),
+    'Dates': random_dates
+})
+print(df)
+date_diff = (pd.to_datetime(df['Dates']) - datetime.now()).dt.days
+
+# Convert the difference in days to years and store it in a new column
+df['Years'] = date_diff / 365.25
+
+# Create an array of years
+years = df['Years'].values
+
+# Display the array
+print(years)
+#
+data = df.iloc[:,2]
+
+# Define the bin ranges with overflow
+bin_ranges = [0, 5, 10, 15, float('inf')]
+
+# Calculate the histogram data
+hist = pd.cut(data, bins=bin_ranges, right=True).value_counts(sort=False)
+
+# Convert the histogram data to a numpy array
+hist_array = hist.values
+hist_percvent = hist.values/hist.values.sum()
+
+# Print the histogram data
+df.sort_values(by=['Years'],inplace=True)
+print(df)
+print(hist_array)
+print(hist_percvent)
+
+****************************************** VERSION 3 USING Matplotlib ********************************
+import numpy as np
+from matplotlib import pyplot as plt
+plt.rcParams["figure.figsize"] = [7.50, 3.50]
+plt.rcParams["figure.autolayout"] = True
+x = np.random.randn(1000)
+n_bins = 4
+n, bins, patches = plt.hist(x, bins=n_bins, edgecolor='black', rwidth=.2)
+ 
+ticks = [(patch.get_x() + patch.get_width()/2) for patch in patches]
+
+ticklabels = [("Monday") for i in range(n_bins)]
+plt.xticks(ticks, ticklabels)
+plt.show()

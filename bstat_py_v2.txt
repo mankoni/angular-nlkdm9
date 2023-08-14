@@ -1,0 +1,42 @@
+import pandas as pd
+def weighted_average(dataframe, value, weight):
+    
+    dataframe[value] = pd.to_numeric(dataframe[value], errors='coerce')
+    dataframe = dataframe.dropna(subset=[value])
+    val = dataframe[value]
+    wt = dataframe[weight]
+    return pd.Series({'weighted_average': (val * wt).sum() / wt.sum(),
+                      'sum_of_weights': wt.sum()})
+
+#List column names in this array for which we need to calculate the weighted average
+bstat = ['GROSSM' , 'PROFIT']
+
+dataframe = pd.read_excel('/content/sample_data/Colab_input.xlsx')
+   
+for i in bstat:
+  result = dataframe.groupby('REGION').apply(weighted_average,i, 'SALES')
+  weighted_avg = (result['weighted_average'] * result['sum_of_weights']).sum() / result['sum_of_weights'].sum()
+  print('WEIGHTED AVERAGE of  {}  is ==> {}'.format(i , weighted_avg))
+  
+  ***********************   VER 2 for including TAX TYPE   ******************************
+import pandas as pd
+def weighted_average(dataframe, value, weight, taxtype):
+    dataframe[value] = pd.to_numeric(dataframe[value], errors='coerce')
+    dataframe = dataframe.dropna(subset=[value])
+    if (taxtype == 'TAXABLE'):
+      dataframe = dataframe.query("DISTRICT in ['D1' , 'D2']")
+    else:
+      dataframe = dataframe.query("DISTRICT not in ['D1' , 'D2']")
+
+    val = dataframe[value]
+    wt = dataframe[weight]
+    return pd.Series({'weighted_average': (val * wt).sum() / wt.sum(),
+                      'sum_of_weights': wt.sum()})
+
+dataframe = pd.read_excel('/content/sample_data/Colab_input1.xlsx')
+   
+for i in ['GROSSM' , 'PROFIT']:
+  for taxtype in ['TAXABLE' , 'TAX EXEMPT']:
+    result = dataframe.groupby('REGION').apply(weighted_average,i, 'SALES', taxtype)
+    weighted_avg = (result['weighted_average'] * result['sum_of_weights']).sum() / result['sum_of_weights'].sum()
+    print('{} WEIGHTED AVERAGE of  {}  is ==> {}'.format(taxtype , i , weighted_avg))
