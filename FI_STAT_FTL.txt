@@ -42,19 +42,20 @@ td, th {
 <table>
 
 <!-- HEADER ROWS -->
+<#list data.Summary as summary>
 
 
   <tr>
 
-    <td colspan="3">Treasury Notes</td>
+    <td colspan="3">${summary.AssType}</td>
 
-    <td>1.5%</td>
-
-    <td></td>
+    <td>${summary.SCoupon}%</td>
 
     <td></td>
 
-    <td>123,678</td>
+    <td></td>
+
+    <td>${summary.SMktValue}</td>
 
     <td></td>
 
@@ -66,9 +67,9 @@ td, th {
 
     <td colspan="6"></td>
 
-    <td>3,409</td>
+    <td>${summary.SGainLoss}</td>
 
-    <td>4.56</td>
+    <td>${summary.SYTW}</td>
 
   </tr>
 
@@ -76,14 +77,14 @@ td, th {
 
     <td colspan="6"     ></td>
 
-    <td >4.88</td>
+    <td >${summary.SPurchYld}</td>
 
-    <td>3.56</td>
+    <td>${summary.SYTM}</td>
 
  </tr>
 
  <!-- END SUMMARY ROWS==> 3 rows in total  -->
-  </tr>
+
 
    <tr>
 
@@ -109,80 +110,85 @@ td, th {
     <td colspan = "8" </td>
 
   </tr>
+
+
+<!-- START OF DETAIL ROWS -->
+
+ <#list summary.Details as detail>
 
 
   <tr>
 
-    <td colspan="3">Agencies</td>
+    <td>${detail.Qty}</td>
 
-    <td>2.5%</td>
+    <td>${detail.Description}</td>
+
+    <td>${detail.Moody}</td>
+
+    <td>${detail.Coupon}%</td>
+
+    <td>${detail.Redemption}</td>
+
+    <td>${detail.MktPrice}</td>
+
+    <td>${detail.MktValue}</td>
+
+    <td>${detail.YldPrice}</td>
+ </tr>
+ <tr>
 
     <td></td>
 
+    <td>${detail.Detail}</td>
+
+    <td> ${detail.SnP}</td>
+
+    <td>${detail.CpnType}</td>
+
+    <td> </td>
+
+    <td> ${detail.AdjPrice}</td>
+
+    <td>${detail.GainLoss}</td>
+
+    <td>${detail.YTW}%</td>
+ </tr>
+ <tr>
+
     <td></td>
 
-    <td>123,678</td>
+    <td>${detail.ID}</td>
 
-    <td></td>
+    <td> </td>
 
-  
+    <td> </td>
 
-  </tr>
+    <td>${detail.CallPrice} </td>
 
-   <tr>
+    <td> ${detail.OrigPrice}</td>
 
-    <td colspan="6"></td>
+    <td>${detail.PurchYld}%</td>
 
-    <td>3,452</td>
-
-    <td>3.67</td>
-
-  </tr>
-
-  <tr class="last-row">
-
-    <td colspan="6"     ></td>
-
-    <td >4.45</td>
-
-    <td>5.03</td>
-
+    <td>${detail.YTM}%</td>
  </tr>
 
- <!-- END SUMMARY ROWS==> 3 rows in total  -->
-  </tr>
+ </#list>
 
-   <tr>
-
-    <td colspan = "8" </td>
-
-  </tr>
-
-   <tr>
-
-    <td colspan = "8" </td>
+<!-- END DETAILROWS -->
 
 
-  </tr>
 
-   <tr>
+</#list>
 
-    <td colspan = "8" </td>
-
-  </tr>
-
-   <tr>
-
-    <td colspan = "8" </td>
-
-  </tr>
-
-<!-- END HEADER ROWS -->
+<!-- END SUMMARY ROWS -->
 </table>
 
 </body>
 
 </html>
+
+ 
+ 
 
  *******************************************************************************************************************
  data={ 
