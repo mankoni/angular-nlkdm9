@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+table {
+
+  font-family: arial, sans-serif;
+
+  border-collapse: collapse;
+
+  width: 100%;
+
+}
+
+td, th {
+
+  border: 0px solid #dddddd;
+
+  text-align: left;
+
+  padding: 1px;
+
+
+}
+
+  .last-row {
+    border-bottom: 2px solid black;
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<h2>HTML Table</h2>
+
+<table>
+
+<!-- HEADER ROWS -->
+
+
+  <tr>
+
+    <td colspan="3">Treasury Notes</td>
+
+    <td>1.5%</td>
+
+    <td></td>
+
+    <td></td>
+
+    <td>123,678</td>
+
+    <td></td>
+
+  
+
+  </tr>
+
+   <tr>
+
+    <td colspan="6"></td>
+
+    <td>3,409</td>
+
+    <td>4.56</td>
+
+  </tr>
+
+  <tr class="last-row">
+
+    <td colspan="6"     ></td>
+
+    <td >4.88</td>
+
+    <td>3.56</td>
+
+ </tr>
+
+ <!-- END SUMMARY ROWS==> 3 rows in total  -->
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+
+  <tr>
+
+    <td colspan="3">Agencies</td>
+
+    <td>2.5%</td>
+
+    <td></td>
+
+    <td></td>
+
+    <td>123,678</td>
+
+    <td></td>
+
+  
+
+  </tr>
+
+   <tr>
+
+    <td colspan="6"></td>
+
+    <td>3,452</td>
+
+    <td>3.67</td>
+
+  </tr>
+
+  <tr class="last-row">
+
+    <td colspan="6"     ></td>
+
+    <td >4.45</td>
+
+    <td>5.03</td>
+
+ </tr>
+
+ <!-- END SUMMARY ROWS==> 3 rows in total  -->
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+<!-- END HEADER ROWS -->
+</table>
+
+</body>
+
+</html>
+
+ *******************************************************************************************************************
+ data={ 
+
+"title": "FI STATISTICS",
+
+"Summary":[
+    { "AssType": "Treasury Notes",
+      "SCoupon": 1.5,
+	  "SMktValue": 123678,
+	  
+	  "SGainLoss": 3409,
+	  "SYTW": 4.56,
+	  
+	  "SPurchYld": 4.88,
+	  "SYTM": 3.56,
+	  
+	  
+    
+            "Details":[
+              
+              {
+                  "Qty": 350000,
+                  "Description": "US TRESURY",
+                  "Moody":"AAA",
+                  "Coupon":1.375,
+                  "Redemption":"08/31/23 M",
+                  "MktPrice":99.69,
+                  "MktValue":249345,
+                  "Yldprice":98.76,
+                  
+                  "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "S&P": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "adjprice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PuirchYld": 3.45,
+                  "YTM": 2.35
+              },
+              
+              {   "Qty": 450000,
+                  "Description": "US TRESURY",
+                  "Moody":"AAA",
+                  "Coupon":1.375,
+                  "Redemption":"08/31/29 M",
+                  "MktPrice":99.69,
+                  "MktValue":456345,
+                  "Yldprice":96.76,
+                  
+                  "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "S&P": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "adjprice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PuirchYld": 3.45,
+                  "YTM": 2.35
+              },
+              {   "Qty": 245000,
+                  "Description": "FEDERL MORT ASSN",
+                  "Moody":"AA",
+                  "Coupon":1.845,
+                  "Redemption":"08/31/25 M",
+                  "MktPrice":97.69,
+                  "MktValue":129345,
+                  "Yldprice":95.76,
+                  
+                  "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "S&P": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "adjprice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PuirchYld": 3.45,
+                  "YTM": 2.35
+              },
+              {   "Qty": 350000,
+                  "Description":"FEDERL MORT ASSN",
+                  "Moody":"AAA",
+                  "Coupon":1.375,
+                  "Redemption":"08/31/27 M",
+                  "MktPrice":79.69,
+                  "MktValue":123345,
+                  "Yldprice":98.24,
+                  
+                  "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "S&P": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "adjprice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PuirchYld": 3.45,
+                  "YTM": 2.35
+              }
+              ]
+          },
+    { "AssType": "Agencies",
+      "SCoupon": 2.5,
+	  "SMktValue": 123678,
+	  
+	  "SGainLoss": 3452,
+	  "SYTW": 3.67,
+	  
+	  "SPurchYld": 4.45,
+	  "SYTM": 5.03,
+    
+            "Details":[
+              
+              {
+                  "Qty": 350000,
+                  "Description": "US TRESURY",
+                  "Moody":"AAA",
+                  "Coupon":1.375,
+                  "Redemption":"08/31/23 M",
+                  "MktPrice":99.69,
+                  "MktValue":249345,
+                  "Yldprice":98.76,
+                  
+                  "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "S&P": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "adjprice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PuirchYld": 3.45,
+                  "YTM": 2.35
+              },
+              {"Qty": 450000,
+                  "Description": "US TRESURY",
+                  "Moody":"AAA",
+                  "Coupon":1.375,
+                  "Redemption":"08/31/29 M",
+                  "MktPrice":99.69,
+                  "MktValue":456345,
+                  "Yldprice":96.76,
+                  
+                   "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "S&P": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "adjprice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PuirchYld": 3.45,
+                  "YTM": 2.35
+              },
+              {"Qty": 245000,
+                  "Description": "FEDERL MORT ASSN",
+                  "Moody":"AA",
+                  "Coupon":1.845,
+                  "Redemption":"08/31/25 M",
+                  "MktPrice":97.69,
+                  "MktValue":129345,
+                  "Yldprice":95.76,
+                  
+                   "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "S&P": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "adjprice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PuirchYld": 3.45,
+                  "YTM": 2.35
+              },
+              {"Qty": 350000,
+                  "Description":"FEDERL MORT ASSN",
+                  "Moody":"AAA",
+                  "Coupon":1.375,
+                  "Redemption":"08/31/27 M",
+                  "MktPrice":79.69,
+                  "MktValue":123345,
+                  "Yldprice":98.24,
+                  
+                   "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "S&P": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "adjprice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PuirchYld": 3.45,
+                  "YTM": 2.35
+              }
+              ]
+          }        
+      ]
+  }
+
+
+ 
