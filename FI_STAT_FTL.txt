@@ -31,6 +31,19 @@ td, th {
     border-bottom: 2px solid black;
   }
 
+
+.row-color {
+  background-color: #f1f1f1;
+}
+
+.no-row-color {
+  background-color: none;
+}
+.blue {
+
+   color:#00F;
+
+}
 </style>
 
 </head>
@@ -43,6 +56,7 @@ td, th {
 
 <!-- HEADER ROWS -->
 <#list data.Summary as summary>
+
 
 
   <tr>
@@ -67,9 +81,9 @@ td, th {
 
     <td colspan="6"></td>
 
-    <td>${summary.SGainLoss}</td>
+    <td class="blue">${summary.SGainLoss}</td>
 
-    <td>${summary.SYTW}</td>
+    <td class="blue">${summary.SYTW}</td>
 
   </tr>
 
@@ -86,38 +100,21 @@ td, th {
  <!-- END SUMMARY ROWS==> 3 rows in total  -->
 
 
-   <tr>
-
-    <td colspan = "8" </td>
-
-  </tr>
-
-   <tr>
-
-    <td colspan = "8" </td>
-
-
-  </tr>
-
-   <tr>
-
-    <td colspan = "8" </td>
-
-  </tr>
-
-   <tr>
-
-    <td colspan = "8" </td>
-
-  </tr>
+ <tr height="30 px">
 
 
 <!-- START OF DETAIL ROWS -->
 
  <#list summary.Details as detail>
+   <#assign shade = "row-color">
+   <#if (detail?index)%2 == 0>
+     <#assign shade = "row-color">
+   <else>
+      <#assign shade = "no-row-color">
+   
+   </#if>
 
-
-  <tr>
+  <tr class="${shade}" >
 
     <td>${detail.Qty}</td>
 
@@ -135,25 +132,25 @@ td, th {
 
     <td>${detail.YldPrice}</td>
  </tr>
- <tr>
+ <tr class="${shade}">
 
     <td></td>
 
-    <td>${detail.Detail}</td>
+    <td class="blue">${detail.Detail}</td>
 
-    <td> ${detail.SnP}</td>
+    <td class="blue"> ${detail.SnP}</td>
 
-    <td>${detail.CpnType}</td>
+    <td class="blue">${detail.CpnType}</td>
 
     <td> </td>
 
-    <td> ${detail.AdjPrice}</td>
+    <td class="blue"> ${detail.AdjPrice}</td>
 
-    <td>${detail.GainLoss}</td>
+    <td class="blue">${detail.GainLoss}</td>
 
-    <td>${detail.YTW}%</td>
+    <td class="blue">${detail.YTW}%</td>
  </tr>
- <tr>
+ <tr class="${shade}">
 
     <td></td>
 
@@ -177,6 +174,7 @@ td, th {
 <!-- END DETAILROWS -->
 
 
+  <tr height="35 px">
 
 </#list>
 
@@ -186,6 +184,8 @@ td, th {
 </body>
 
 </html>
+
+ 
 
  
  
@@ -439,4 +439,3 @@ data={
           }        
       ]
   }
-
