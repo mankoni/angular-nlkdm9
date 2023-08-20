@@ -191,7 +191,7 @@ td, th {
  
 
  *******************************************************************************************************************
- data={ 
+data={ 
 
 "title": "FI STATISTICS",
 
@@ -218,14 +218,14 @@ td, th {
                   "Redemption":"08/31/23 M",
                   "MktPrice":99.69,
                   "MktValue":249345,
-                  "Yldprice":98.76,
+                  "YldPrice":98.76,
                   
                   "Rem Prin":"",
                   "Detail": "NOTES",
-                  "S&P": "AAA",
+                  "SnP": "AAA",
                   "CpnType": "Fixed",
                   "NextCall": "",
-                  "adjprice": 97.45,
+                  "AdjPrice": 97.45,
                   "GainLoss": 3456,
                   "YTW": 4.56,
                   
@@ -234,7 +234,7 @@ td, th {
                   "Enhance": "",
                   "CallPrice": 0.00001,
                   "OrigPrice": 98.45,
-                  "PuirchYld": 3.45,
+                  "PurchYld": 3.45,
                   "YTM": 2.35
               },
               
@@ -245,14 +245,14 @@ td, th {
                   "Redemption":"08/31/29 M",
                   "MktPrice":99.69,
                   "MktValue":456345,
-                  "Yldprice":96.76,
+                  "YldPrice":96.76,
                   
                   "Rem Prin":"",
                   "Detail": "NOTES",
-                  "S&P": "AAA",
+                  "SnP": "AAA",
                   "CpnType": "Fixed",
                   "NextCall": "",
-                  "adjprice": 97.45,
+                  "AdjPrice": 97.45,
                   "GainLoss": 3456,
                   "YTW": 4.56,
                   
@@ -261,7 +261,7 @@ td, th {
                   "Enhance": "",
                   "CallPrice": 0.00001,
                   "OrigPrice": 98.45,
-                  "PuirchYld": 3.45,
+                  "PurchYld": 3.45,
                   "YTM": 2.35
               },
               {   "Qty": 245000,
@@ -271,14 +271,14 @@ td, th {
                   "Redemption":"08/31/25 M",
                   "MktPrice":97.69,
                   "MktValue":129345,
-                  "Yldprice":95.76,
+                  "YldPrice":95.76,
                   
                   "Rem Prin":"",
                   "Detail": "NOTES",
-                  "S&P": "AAA",
+                  "SnP": "AAA",
                   "CpnType": "Fixed",
                   "NextCall": "",
-                  "adjprice": 97.45,
+                  "AdjPrice": 97.45,
                   "GainLoss": 3456,
                   "YTW": 4.56,
                   
@@ -287,7 +287,7 @@ td, th {
                   "Enhance": "",
                   "CallPrice": 0.00001,
                   "OrigPrice": 98.45,
-                  "PuirchYld": 3.45,
+                  "PurchYld": 3.45,
                   "YTM": 2.35
               },
               {   "Qty": 350000,
@@ -297,14 +297,14 @@ td, th {
                   "Redemption":"08/31/27 M",
                   "MktPrice":79.69,
                   "MktValue":123345,
-                  "Yldprice":98.24,
+                  "YldPrice":98.24,
                   
                   "Rem Prin":"",
                   "Detail": "NOTES",
-                  "S&P": "AAA",
+                  "SnP": "AAA",
                   "CpnType": "Fixed",
                   "NextCall": "",
-                  "adjprice": 97.45,
+                  "AdjPrice": 97.45,
                   "GainLoss": 3456,
                   "YTW": 4.56,
                   
@@ -313,7 +313,7 @@ td, th {
                   "Enhance": "",
                   "CallPrice": 0.00001,
                   "OrigPrice": 98.45,
-                  "PuirchYld": 3.45,
+                  "PurchYld": 3.45,
                   "YTM": 2.35
               }
               ]
@@ -338,14 +338,14 @@ td, th {
                   "Redemption":"08/31/23 M",
                   "MktPrice":99.69,
                   "MktValue":249345,
-                  "Yldprice":98.76,
+                  "YldPrice":98.76,
                   
                   "Rem Prin":"",
                   "Detail": "NOTES",
-                  "S&P": "AAA",
+                  "SnP": "AAA",
                   "CpnType": "Fixed",
                   "NextCall": "",
-                  "adjprice": 97.45,
+                  "AdjPrice": 97.45,
                   "GainLoss": 3456,
                   "YTW": 4.56,
                   
@@ -354,7 +354,7 @@ td, th {
                   "Enhance": "",
                   "CallPrice": 0.00001,
                   "OrigPrice": 98.45,
-                  "PuirchYld": 3.45,
+                  "PurchYld": 3.45,
                   "YTM": 2.35
               },
               {"Qty": 450000,
@@ -364,14 +364,14 @@ td, th {
                   "Redemption":"08/31/29 M",
                   "MktPrice":99.69,
                   "MktValue":456345,
-                  "Yldprice":96.76,
+                  "YldPrice":96.76,
                   
                    "Rem Prin":"",
                   "Detail": "NOTES",
-                  "S&P": "AAA",
+                  "SnP": "AAA",
                   "CpnType": "Fixed",
                   "NextCall": "",
-                  "adjprice": 97.45,
+                  "AdjPrice": 97.45,
                   "GainLoss": 3456,
                   "YTW": 4.56,
                   
@@ -380,7 +380,7 @@ td, th {
                   "Enhance": "",
                   "CallPrice": 0.00001,
                   "OrigPrice": 98.45,
-                  "PuirchYld": 3.45,
+                  "PurchYld": 3.45,
                   "YTM": 2.35
               },
               {"Qty": 245000,
@@ -390,14 +390,14 @@ td, th {
                   "Redemption":"08/31/25 M",
                   "MktPrice":97.69,
                   "MktValue":129345,
-                  "Yldprice":95.76,
+                  "YldPrice":95.76,
                   
                    "Rem Prin":"",
                   "Detail": "NOTES",
-                  "S&P": "AAA",
+                  "SnP": "AAA",
                   "CpnType": "Fixed",
                   "NextCall": "",
-                  "adjprice": 97.45,
+                  "AdjPrice": 97.45,
                   "GainLoss": 3456,
                   "YTW": 4.56,
                   
@@ -406,7 +406,7 @@ td, th {
                   "Enhance": "",
                   "CallPrice": 0.00001,
                   "OrigPrice": 98.45,
-                  "PuirchYld": 3.45,
+                  "PurchYld": 3.45,
                   "YTM": 2.35
               },
               {"Qty": 350000,
@@ -416,14 +416,14 @@ td, th {
                   "Redemption":"08/31/27 M",
                   "MktPrice":79.69,
                   "MktValue":123345,
-                  "Yldprice":98.24,
+                  "YldPrice":98.24,
                   
                    "Rem Prin":"",
                   "Detail": "NOTES",
-                  "S&P": "AAA",
+                  "SnP": "AAA",
                   "CpnType": "Fixed",
                   "NextCall": "",
-                  "adjprice": 97.45,
+                  "AdjPrice": 97.45,
                   "GainLoss": 3456,
                   "YTW": 4.56,
                   
@@ -432,7 +432,7 @@ td, th {
                   "Enhance": "",
                   "CallPrice": 0.00001,
                   "OrigPrice": 98.45,
-                  "PuirchYld": 3.45,
+                  "PurchYld": 3.45,
                   "YTM": 2.35
               }
               ]
@@ -440,5 +440,3 @@ td, th {
       ]
   }
 
-
- 
