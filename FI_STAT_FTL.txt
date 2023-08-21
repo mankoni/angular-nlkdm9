@@ -75,7 +75,7 @@ td, th {
 
     <th>Yld Price's</th>
 
-  </tr>
+  </tr class="blue">
 
    <tr>
 
