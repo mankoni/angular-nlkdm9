@@ -55,6 +55,107 @@ td, th {
 <table>
 
 <!-- HEADER ROWS -->
+
+
+  <tr>
+
+    <th>Qty/Face</th>
+
+    <th>Description</th>
+
+    <th>Moody's</th>
+
+    <th>Coupon</th>
+
+    <th>Redemption</th>
+
+    <th>Mkt Price</th>
+
+    <th>Mkt Value($)</th>
+
+    <th>Yld Price's</th>
+
+  </tr>
+
+   <tr>
+
+    <th>Rem Prin</th>
+
+    <th>Detail</th>
+
+    <th>S&P</th>
+
+    <th>Cpn Type</th>
+
+    <th>Next Call</th>
+
+    <th> Adj Price</th>
+
+    <th>Gain/Loss</th>
+
+    <th>YTW</th>
+
+  </tr>
+
+  <tr>
+
+    <th>Factor</th>
+
+    <th>ID</th>
+
+    <th>Enhance</th>
+
+    <th></th>
+
+    <th>Call Price</th>
+
+    <th>Orig Price</th>
+
+    <th>Purch Yld</th>
+
+    <th>YTM</th>
+
+  </tr>
+
+<!-- END HEADER ROWS -->
+
+ 
+
+<!-- SPACE BETWEEN HEADER ROW AND SUMMARY ROW -->
+
+  <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+<!-- END SPACE BETWEEN HEADER ROW AND SUMMARY ROW -->
+
+
 <#list data.Summary as summary>
 
 
@@ -77,13 +178,13 @@ td, th {
 
   </tr>
 
-   <tr>
+   <tr class="blue">
 
     <td colspan="6"></td>
 
-    <td class="blue">${summary.SGainLoss}</td>
+    <td >${summary.SGainLoss}</td>
 
-    <td class="blue">${summary.SYTW}</td>
+    <td>${summary.SYTW}</td>
 
   </tr>
 
@@ -132,23 +233,23 @@ td, th {
 
     <td>${detail.YldPrice}</td>
  </tr>
- <tr class="${shade}">
+ <tr class="${shade} blue">
 
     <td></td>
 
-    <td class="blue">${detail.Detail}</td>
+    <td >${detail.Detail}</td>
 
-    <td class="blue"> ${detail.SnP}</td>
+    <td> ${detail.SnP}</td>
 
-    <td class="blue">${detail.CpnType}</td>
+    <td>${detail.CpnType}</td>
 
     <td> </td>
 
-    <td class="blue"> ${detail.AdjPrice}</td>
+    <td> ${detail.AdjPrice}</td>
 
-    <td class="blue">${detail.GainLoss}</td>
+    <td >${detail.GainLoss}</td>
 
-    <td class="blue">${detail.YTW}%</td>
+    <td>${detail.YTW}%</td>
  </tr>
  <tr class="${shade}">
 
