@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+table {
+
+  font-family: arial, sans-serif;
+
+  border-collapse: collapse;
+
+  width: 100%;
+
+}
+
+td, th {
+
+  border: 0px solid #dddddd;
+
+  text-align: left;
+
+  padding: 1px;
+
+
+}
+
+  .last-row {
+    border-bottom: 2px solid black;
+  }
+
+
+.row-color {
+  background-color: #f1f1f1;
+}
+
+.no-row-color {
+  background-color: none;
+}
+.blue {
+
+   color:#00F;
+
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>HTML Table</h2>
+
+<table>
+
+<!-- HEADER ROWS -->
+
+
+  <tr>
+
+    <th>Qty/Face</th>
+
+    <th>Description</th>
+
+    <th>Moody's</th>
+
+    <th>Coupon</th>
+
+    <th>Redemption</th>
+
+    <th>Mkt Price</th>
+
+    <th>Mkt Value($)</th>
+
+    <th>Yld Price's</th>
+
+  </tr class="blue">
+
+   <tr>
+
+    <th>Rem Prin</th>
+
+    <th>Detail</th>
+
+    <th>S&P</th>
+
+    <th>Cpn Type</th>
+
+    <th>Next Call</th>
+
+    <th> Adj Price</th>
+
+    <th>Gain/Loss</th>
+
+    <th>YTW</th>
+
+  </tr>
+
+  <tr>
+
+    <th>Factor</th>
+
+    <th>ID</th>
+
+    <th>Enhance</th>
+
+    <th></th>
+
+    <th>Call Price</th>
+
+    <th>Orig Price</th>
+
+    <th>Purch Yld</th>
+
+    <th>YTM</th>
+
+  </tr>
+
+<!-- END HEADER ROWS -->
+
+ 
+
+<!-- SPACE BETWEEN HEADER ROW AND SUMMARY ROW -->
+
+  <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+   <tr>
+
+    <td colspan = "8" </td>
+
+  </tr>
+
+<!-- END SPACE BETWEEN HEADER ROW AND SUMMARY ROW -->
+
+
+<#list data.Summary as summary>
+
+
+
+  <tr>
+
+    <td colspan="3">${summary.AssType}</td>
+
+    <td>${summary.SCoupon}%</td>
+
+    <td></td>
+
+    <td></td>
+
+    <td>${summary.SMktValue}</td>
+
+    <td></td>
+
+  
+
+  </tr>
+
+   <tr class="blue">
+
+    <td colspan="6"></td>
+
+    <td >${summary.SGainLoss}</td>
+
+    <td>${summary.SYTW}</td>
+
+  </tr>
+
+  <tr class="last-row">
+
+    <td colspan="6"     ></td>
+
+    <td >${summary.SPurchYld}</td>
+
+    <td>${summary.SYTM}</td>
+
+ </tr>
+
+ <!-- END SUMMARY ROWS==> 3 rows in total  -->
+
+
+ <tr height="30 px">
+
+
+<!-- START OF DETAIL ROWS -->
+
+ <#list summary.Details as detail>
+  
+   <#if (detail?index)%2 == 0>
+     <#assign shade = "row-color">
+<p>TRUE</p>
+   <#else>
+      <#assign shade = "no-row-color">
+<p> FALSE </p>
+   
+   </#if>
+
+  <tr class="${shade}" >
+
+    <td>${detail.Qty}</td>
+
+    <td>${detail.Description}</td>
+
+    <td>${detail.Moody}</td>
+
+    <td>${detail.Coupon}%</td>
+
+    <td>${detail.Redemption}</td>
+
+    <td>${detail.MktPrice}</td>
+
+    <td>${detail.MktValue}</td>
+
+    <td>${detail.YldPrice}</td>
+ </tr>
+ <tr class="${shade} blue">
+
+    <td></td>
+
+    <td >${detail.Detail}</td>
+
+    <td> ${detail.SnP}</td>
+
+    <td>${detail.CpnType}</td>
+
+    <td> </td>
+
+    <td> ${detail.AdjPrice}</td>
+
+    <td >${detail.GainLoss}</td>
+
+    <td>${detail.YTW}%</td>
+ </tr>
+ <tr class="${shade}">
+
+    <td></td>
+
+    <td>${detail.ID}</td>
+
+    <td> </td>
+
+    <td> </td>
+
+    <td>${detail.CallPrice} </td>
+
+    <td> ${detail.OrigPrice}</td>
+
+    <td>${detail.PurchYld}%</td>
+
+    <td>${detail.YTM}%</td>
+ </tr>
+
+ </#list>
+
+<!-- END DETAILROWS -->
+
+
+  <tr height="35 px">
+
+</#list>
+
+<!-- END SUMMARY ROWS -->
+</table>
+
+</body>
+
+</html>
+
+ 
+
+ 
+ 
+*************************
+
+data={ 
+
+"title": "FI STATISTICS",
+
+"Summary":[
+    { "AssType": "Treasury Notes",
+      "SCoupon": 1.5,
+	  "SMktValue": 123678,
+	  
+	  "SGainLoss": 3409,
+	  "SYTW": 4.56,
+	  
+	  "SPurchYld": 4.88,
+	  "SYTM": 3.56,
+	  
+	  
+    
+            "Details":[
+              
+              {
+                  "Qty": 350000,
+                  "Description": "US TRESURY",
+                  "Moody":"AAA",
+                  "Coupon":1.375,
+                  "Redemption":"08/31/23 M",
+                  "MktPrice":99.69,
+                  "MktValue":249345,
+                  "YldPrice":98.76,
+                  
+                  "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "SnP": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "AdjPrice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PurchYld": 3.45,
+                  "YTM": 2.35
+              },
+              
+              {   "Qty": 450000,
+                  "Description": "US TRESURY",
+                  "Moody":"AAA",
+                  "Coupon":1.375,
+                  "Redemption":"08/31/29 M",
+                  "MktPrice":99.69,
+                  "MktValue":456345,
+                  "YldPrice":96.76,
+                  
+                  "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "SnP": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "AdjPrice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PurchYld": 3.45,
+                  "YTM": 2.35
+              },
+              {   "Qty": 245000,
+                  "Description": "FEDERL MORT ASSN",
+                  "Moody":"AA",
+                  "Coupon":1.845,
+                  "Redemption":"08/31/25 M",
+                  "MktPrice":97.69,
+                  "MktValue":129345,
+                  "YldPrice":95.76,
+                  
+                  "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "SnP": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "AdjPrice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PurchYld": 3.45,
+                  "YTM": 2.35
+              },
+              {   "Qty": 350000,
+                  "Description":"FEDERL MORT ASSN",
+                  "Moody":"AAA",
+                  "Coupon":1.375,
+                  "Redemption":"08/31/27 M",
+                  "MktPrice":79.69,
+                  "MktValue":123345,
+                  "YldPrice":98.24,
+                  
+                  "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "SnP": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "AdjPrice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PurchYld": 3.45,
+                  "YTM": 2.35
+              }
+              ]
+          },
+    { "AssType": "Agencies",
+      "SCoupon": 2.5,
+	  "SMktValue": 123678,
+	  
+	  "SGainLoss": 3452,
+	  "SYTW": 3.67,
+	  
+	  "SPurchYld": 4.45,
+	  "SYTM": 5.03,
+    
+            "Details":[
+              
+              {
+                  "Qty": 350000,
+                  "Description": "US TRESURY",
+                  "Moody":"AAA",
+                  "Coupon":1.375,
+                  "Redemption":"08/31/23 M",
+                  "MktPrice":99.69,
+                  "MktValue":249345,
+                  "YldPrice":98.76,
+                  
+                  "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "SnP": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "AdjPrice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PurchYld": 3.45,
+                  "YTM": 2.35
+              },
+              {"Qty": 450000,
+                  "Description": "US TRESURY",
+                  "Moody":"AAA",
+                  "Coupon":1.375,
+                  "Redemption":"08/31/29 M",
+                  "MktPrice":99.69,
+                  "MktValue":456345,
+                  "YldPrice":96.76,
+                  
+                   "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "SnP": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "AdjPrice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PurchYld": 3.45,
+                  "YTM": 2.35
+              },
+              {"Qty": 245000,
+                  "Description": "FEDERL MORT ASSN",
+                  "Moody":"AA",
+                  "Coupon":1.845,
+                  "Redemption":"08/31/25 M",
+                  "MktPrice":97.69,
+                  "MktValue":129345,
+                  "YldPrice":95.76,
+                  
+                   "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "SnP": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "AdjPrice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PurchYld": 3.45,
+                  "YTM": 2.35
+              },
+              {"Qty": 350000,
+                  "Description":"FEDERL MORT ASSN",
+                  "Moody":"AAA",
+                  "Coupon":1.375,
+                  "Redemption":"08/31/27 M",
+                  "MktPrice":79.69,
+                  "MktValue":123345,
+                  "YldPrice":98.24,
+                  
+                   "Rem Prin":"",
+                  "Detail": "NOTES",
+                  "SnP": "AAA",
+                  "CpnType": "Fixed",
+                  "NextCall": "",
+                  "AdjPrice": 97.45,
+                  "GainLoss": 3456,
+                  "YTW": 4.56,
+                  
+                  "Factor": "",
+                  "ID": "34FSDF56G",
+                  "Enhance": "",
+                  "CallPrice": 0.00001,
+                  "OrigPrice": 98.45,
+                  "PurchYld": 3.45,
+                  "YTM": 2.35
+              }
+              ]
+          }        
+      ]
+  }
