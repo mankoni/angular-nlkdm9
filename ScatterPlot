@@ -1,0 +1,116 @@
+import java.io.IOException;
+import ChartDirector.*;
+import java.util.*;
+
+
+
+public class Scatter3 {
+
+    public static void main(String[] args) throws IOException {
+
+        double[] dataX0 = {5};
+        double[] dataX1 = {7};
+        double[] dataX2 = {9};
+        double[] dataX3 = {10};
+        double[] dataX4 = {12};
+        double[] dataX5 = {14};
+
+
+        double[] dataY0 = {3.4};
+        double[] dataY1 = {5.4};
+        double[] dataY2 = {6.4};
+        double[] dataY3 = {7.2};
+        double[] dataY4 = {8.0};
+        double[] dataY5 = {9.2};
+
+
+        double[] risk = {5,7,9,10,11,13};
+        double[] ret = {3.4,5.4,6.6,7.5,8.1,9.2};
+        int[] color = {3,5,6,8,10,12};
+        int[] colors = {0x880000, 0x6655ee,0xeebb22, 0x00ff00,0xffff00, 0xff0000};
+        String [] assetClass = {"A1" , "A2"};
+        String[] symbols = {"Square1.png", "Square2.png"};
+        double[] dataX = {8, 12};
+        double[] dataY = {7, 9};
+
+
+
+
+
+// The XY data of the second data series
+        //       double[] dataX1 = {50, 55, 37, 24, 42, 49, 63, 72, 83, 59};
+        //       double[] dataY1 = {1.6, 1.8, 0.8, 0.5, 1.3, 1.5, 2.3, 2.4, 2.9, 1.5};
+
+// Tool tip formats for data points and trend lines
+        String scatterToolTip = "title='{dataSetName}: Response time at {x} TPS: {value} sec'";
+        String trendToolTip = "title='Slope = {slope|4} sec/TPS; Intercept = {intercept|4} sec'";
+
+// Create a XYChart object of size 450 x 420 pixels
+        XYChart c = new XYChart(680, 520);
+
+// Set the plotarea at (55, 65) and of size 350 x 300 pixels, with white background and a light grey
+// border (0xc0c0c0). Turn on both horizontal and vertical grid lines with light grey color
+// (0xc0c0c0)
+        c.setPlotArea(55, 65, 350, 300, 0xffffff, -1, 0xc0c0c0, 0xc0c0c0, -1);
+
+// Add a legend box at (50, 30) (top of the chart) with horizontal layout. Use 12pt Times Bold
+// Italic font. Set the background and border color to Transparent.
+        LegendBox b = c.addLegend(425 ,155, true, "Arial", 12);
+        b.setBackground(Chart.Transparent, Chart.Transparent);
+        //    c.addLegend(400, 155, true, "Times New Roman Bold Italic", 12);
+
+
+// Add a title to the chart using 18 point Times Bold Itatic font.
+        c.addTitle("Efficient Frontier", "Times New Roman Bold Italic", 18);
+        //    c.addTitle2(9,"Efficient Frontier", "Times New Roman Bold Italic", 18);
+
+
+// Add titles to the axes using 12pt Arial Bold Italic font
+        c.yAxis().setTitle("Average Return(%)", "Arial Bold Italic", 10);
+        c.xAxis().setTitle("Downside Risk(%)", "Arial Bold Italic", 10);
+
+// Set the axes line width to 3 pixels
+        c.yAxis().setWidth(3);
+        c.xAxis().setWidth(3);
+
+// Add a scatter layer using (dataX0, dataY0)
+
+        for(int i = 0; i < risk.length; ++i) {
+            c.addScatterLayer(new double[]{risk[i]}, new double[]{ret[i]}, "", Chart.CircleSymbol, 9,colors[i]);
+        }
+/*
+        ScatterLayer l1 = c.addScatterLayer(dataX0, dataY0, String.valueOf(assetClass[0]), Chart.CircleSymbol, 9,
+                0x008000);
+        ScatterLayer scatter2 = c.addScatterLayer(dataX1, dataY1, "Moderate Growth ", Chart.CircleSymbol, 9,
+                0x6666ff);
+        ScatterLayer scatter3 = c.addScatterLayer(dataX2, dataY2, "Moderate Income",Chart.CircleSymbol, 9,
+                0x5566ff);
+        ScatterLayer scatter4 = c.addScatterLayer(dataX3, dataY3, "Aggressive Income", Chart.CircleSymbol, 9,
+                0x88876f);
+        ScatterLayer scatter5 = c.addScatterLayer(dataX4, dataY4, "Aggressive Growth", Chart.CircleSymbol, 9,
+                0x2266ff);
+        ScatterLayer scatter6 = c.addScatterLayer(dataX5, dataY5, "Your Portfolio", Chart.TriangleSymbol, 9,
+                0x886666);
+*/
+        for (int i = 0; i < dataX.length; ++i) {
+            c.addScatterLayer(new double[]{dataX[i]}, new double[]{dataY[i]}).getDataSet(0).setDataSymbol2(
+                    symbols[i]);
+        }
+        byte[] byteArray2  = c.makeChart2(5);
+        byte[] byteArray1  = c.makeChart2(0);
+
+        String svgout = new String(byteArray2);
+        System.out.println(svgout);
+        String base64String = Base64.getEncoder().encodeToString(byteArray1);
+        String pre = new String("data:image/png;base64,"+base64String);
+        String pngImg = new String("<img src=");
+        String quote = new String(pngImg+"\""+pre+"\""+"</img>");
+
+        //   System.out.println(base64String);
+        //  System.out.println(quote);
+
+
+    }
+}
+
+
