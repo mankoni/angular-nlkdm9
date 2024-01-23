@@ -14,7 +14,7 @@ public class Scatter4 {
         double[] dataX1 = {350, 630, 950, 1360, 1640};
         double[] dataY1 = {5.3, 8.3, 9.5, 10.6, 11.0};
         // The labels for the points
-        String[] labels = {"1", "2", "3", "4", "5" , "6" , "7"
+        String[] labels = {"1", "2", "30", "4", "5" , "6" , "7"
         };
         int[] colors = {0x880000, 0x6655ee,0xeebb22, 0x00ff00,0xffff00, 0xff0000};
         // Create a XYChart object of size 450 x 400 pixels
