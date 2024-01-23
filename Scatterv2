@@ -1,0 +1,71 @@
+import java.io.IOException;
+import ChartDirector.*;
+import java.util.*;
+
+
+public class Scatter4 {
+
+    public static void main(String[] args) throws IOException {
+
+
+        double[] dataX = {150, 400, 300, 1500, 800};
+        double[] dataY = {0.6, 8, 5.4, 2, 4};
+
+        double[] dataX1 = {350, 630, 530, 1650, 1040};
+        double[] dataY1 = {0.6, 8, 5.4, 2, 4};
+        // The labels for the points
+        String[] labels = {"1", "2", "3", "4", "5" , "6" , "7"
+                };
+
+        // Create a XYChart object of size 450 x 400 pixels
+        XYChart c = new XYChart(450, 400);
+
+// Set the plotarea at (55, 40) and of size 350 x 300 pixels, with a light grey border (0xc0c0c0).
+// Turn on both horizontal and vertical grid lines with light grey color (0xc0c0c0)
+        c.setPlotArea(55, 40, 350, 300, 0xffffff, -1, 0xc0c0c0, 0xc0c0c0, -1);
+
+// Add a title to the chart using 18pt Times Bold Itatic font.
+        c.addTitle("Product Comparison Chart", "Times New Roman Bold Italic", 18);
+
+// Add a title to the y axis using 12pt Arial Bold Italic font
+        c.yAxis().setTitle("Capacity (tons)", "Arial Bold Italic", 12);
+
+// Add a title to the x axis using 12pt Arial Bold Italic font
+        c.xAxis().setTitle("Range (miles)", "Arial Bold Italic", 12);
+
+// Set the axes line width to 3 pixels
+        c.xAxis().setWidth(3);
+        c.yAxis().setWidth(3);
+
+        // Add the data as a scatter chart layer, using a 15 pixel circle as the symbol
+        ScatterLayer layer1 = c.addScatterLayer(dataX1, dataY1, "", Chart.CircleSymbol, 15, 0xffddff);
+        ScatterLayer layer = c.addScatterLayer(dataX, dataY, "", Chart.SquareShape, 15, 0x0000ff);
+
+
+// Add labels to the chart as an extra field
+        layer.addExtraField(labels);
+
+// Set the data label format to display the extra field
+        layer.setDataLabelFormat("{field0}");
+
+        // Use 8pt Arial Bold to display the labels
+        TextBox textbox = layer.setDataLabelStyle("Arial Bold", 8,0xffffff);
+
+// Set the background to purple with a 1 pixel 3D border
+ //       textbox.setBackground(0xcc99ff, Chart.Transparent, 1);
+
+// Put the text box 4 pixels to the right of the data point
+        textbox.setAlignment(Chart.Left);
+        textbox.setPos(-13, 0);
+
+        byte[] byteArray2  = c.makeChart2(5);
+        byte[] byteArray1  = c.makeChart2(0);
+
+        String svgout = new String(byteArray2);
+        System.out.println(svgout);
+        String base64String = Base64.getEncoder().encodeToString(byteArray1);
+        String pre = new String("data:image/png;base64,"+base64String);
+        String pngImg = new String("<img src=");
+        String quote = new String(pngImg+"\""+pre+"\""+"</img>");
+    }
+}
