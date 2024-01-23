@@ -8,15 +8,15 @@ public class Scatter4 {
     public static void main(String[] args) throws IOException {
 
 
-        double[] dataX = {150, 400, 300, 1500, 800};
+        double[] dataX = {150, 400, 250, 1500, 800};
         double[] dataY = {0.6, 8, 5.4, 2, 4};
 
-        double[] dataX1 = {350, 630, 530, 1650, 1040};
-        double[] dataY1 = {0.6, 8, 5.4, 2, 4};
+        double[] dataX1 = {350, 630, 950, 1360, 1640};
+        double[] dataY1 = {5.3, 8.3, 9.5, 10.6, 11.0};
         // The labels for the points
         String[] labels = {"1", "2", "3", "4", "5" , "6" , "7"
-                };
-
+        };
+        int[] colors = {0x880000, 0x6655ee,0xeebb22, 0x00ff00,0xffff00, 0xff0000};
         // Create a XYChart object of size 450 x 400 pixels
         XYChart c = new XYChart(450, 400);
 
@@ -25,20 +25,23 @@ public class Scatter4 {
         c.setPlotArea(55, 40, 350, 300, 0xffffff, -1, 0xc0c0c0, 0xc0c0c0, -1);
 
 // Add a title to the chart using 18pt Times Bold Itatic font.
-        c.addTitle("Product Comparison Chart", "Times New Roman Bold Italic", 18);
+        c.addTitle("Efficient Fronier", "Times New Roman Bold Italic", 18);
 
 // Add a title to the y axis using 12pt Arial Bold Italic font
-        c.yAxis().setTitle("Capacity (tons)", "Arial Bold Italic", 12);
+        c.yAxis().setTitle("Retuen(%)", "Arial Bold Italic", 12);
 
 // Add a title to the x axis using 12pt Arial Bold Italic font
-        c.xAxis().setTitle("Range (miles)", "Arial Bold Italic", 12);
+        c.xAxis().setTitle("Risk", "Arial Bold Italic", 12);
 
 // Set the axes line width to 3 pixels
         c.xAxis().setWidth(3);
         c.yAxis().setWidth(3);
 
         // Add the data as a scatter chart layer, using a 15 pixel circle as the symbol
-        ScatterLayer layer1 = c.addScatterLayer(dataX1, dataY1, "", Chart.CircleSymbol, 15, 0xffddff);
+      //  ScatterLayer layer1 = c.addScatterLayer(dataX1, dataY1, "", Chart.CircleSymbol, 15, 0xffddff);
+        for(int i = 0; i < dataX1.length; ++i) {
+            c.addScatterLayer(new double[]{dataX1[i]}, new double[]{dataY1[i]}, "", Chart.CircleSymbol, 9,colors[i]);
+        }
         ScatterLayer layer = c.addScatterLayer(dataX, dataY, "", Chart.SquareShape, 15, 0x0000ff);
 
 
@@ -52,11 +55,11 @@ public class Scatter4 {
         TextBox textbox = layer.setDataLabelStyle("Arial Bold", 8,0xffffff);
 
 // Set the background to purple with a 1 pixel 3D border
- //       textbox.setBackground(0xcc99ff, Chart.Transparent, 1);
+        //       textbox.setBackground(0xcc99ff, Chart.Transparent, 1);
 
 // Put the text box 4 pixels to the right of the data point
         textbox.setAlignment(Chart.Center);
-        
+
 
         byte[] byteArray2  = c.makeChart2(5);
         byte[] byteArray1  = c.makeChart2(0);
