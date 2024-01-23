@@ -55,8 +55,8 @@ public class Scatter4 {
  //       textbox.setBackground(0xcc99ff, Chart.Transparent, 1);
 
 // Put the text box 4 pixels to the right of the data point
-        textbox.setAlignment(Chart.Left);
-        textbox.setPos(-13, 0);
+        textbox.setAlignment(Chart.Center);
+        
 
         byte[] byteArray2  = c.makeChart2(5);
         byte[] byteArray1  = c.makeChart2(0);
